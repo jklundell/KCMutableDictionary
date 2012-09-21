@@ -1,7 +1,7 @@
 KCMutableDictionary
 ===================
 
-KCMutableDictionary is a subclass of NSMutableDictionary that is transparently persisted in the app's keychain.
+KCMutableDictionary is a subclass of NSMutableDictionary that is transparently persisted in the app's keychain. The general idea is to make secure storage of small items in the keychain as easy as using a dictionary.
 
 Four restrictions are imposed:
 
@@ -12,3 +12,5 @@ Four restrictions are imposed:
 3. Mutable values may be stored in KCMutableDictionary, but they will be saved in the keychain as their immutable variants.
 
 4. Reads are fast, but writes are slow.
+
+KCMutableDictionary was inspired by Mark Granoff's [granoff/Lockbox](https://github.com/granoff/Lockbox) and a suggestion by [Ernesto Rivera](https://github.com/rivera-ernesto).
