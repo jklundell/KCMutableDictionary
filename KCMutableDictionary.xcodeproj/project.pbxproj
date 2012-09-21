@@ -15,6 +15,8 @@
 		1C190ED3160CA6A7007D9915 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C190ED2160CA6A7007D9915 /* AppDelegate.m */; };
 		1C190ED6160CA6A7007D9915 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C190ED5160CA6A7007D9915 /* ViewController.m */; };
 		1C190ED9160CA6A7007D9915 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C190ED7160CA6A7007D9915 /* ViewController.xib */; };
+		1C190EE1160CA6ED007D9915 /* KCMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C190EE0160CA6ED007D9915 /* KCMutableDictionary.m */; };
+		1CC3BA36160CBF8E0045FA86 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CC3BA35160CBF8E0045FA86 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,9 @@
 		1C190ED4160CA6A7007D9915 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1C190ED5160CA6A7007D9915 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1C190ED8160CA6A7007D9915 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		1C190EDF160CA6ED007D9915 /* KCMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCMutableDictionary.h; sourceTree = "<group>"; };
+		1C190EE0160CA6ED007D9915 /* KCMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCMutableDictionary.m; sourceTree = "<group>"; };
+		1CC3BA35160CBF8E0045FA86 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CC3BA36160CBF8E0045FA86 /* Security.framework in Frameworks */,
 				1C190EC3160CA6A7007D9915 /* UIKit.framework in Frameworks */,
 				1C190EC5160CA6A7007D9915 /* Foundation.framework in Frameworks */,
 				1C190EC7160CA6A7007D9915 /* CoreGraphics.framework in Frameworks */,
@@ -67,6 +73,7 @@
 		1C190EC1160CA6A7007D9915 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1CC3BA35160CBF8E0045FA86 /* Security.framework */,
 				1C190EC2160CA6A7007D9915 /* UIKit.framework */,
 				1C190EC4160CA6A7007D9915 /* Foundation.framework */,
 				1C190EC6160CA6A7007D9915 /* CoreGraphics.framework */,
@@ -77,6 +84,8 @@
 		1C190EC8160CA6A7007D9915 /* KCMutableDictionary */ = {
 			isa = PBXGroup;
 			children = (
+				1C190EDF160CA6ED007D9915 /* KCMutableDictionary.h */,
+				1C190EE0160CA6ED007D9915 /* KCMutableDictionary.m */,
 				1C190ED1160CA6A7007D9915 /* AppDelegate.h */,
 				1C190ED2160CA6A7007D9915 /* AppDelegate.m */,
 				1C190ED4160CA6A7007D9915 /* ViewController.h */,
@@ -164,6 +173,7 @@
 				1C190ECF160CA6A7007D9915 /* main.m in Sources */,
 				1C190ED3160CA6A7007D9915 /* AppDelegate.m in Sources */,
 				1C190ED6160CA6A7007D9915 /* ViewController.m in Sources */,
+				1C190EE1160CA6ED007D9915 /* KCMutableDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +289,7 @@
 				1C190EDE160CA6A7007D9915 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
