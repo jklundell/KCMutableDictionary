@@ -9,7 +9,7 @@ Four restrictions are imposed:
 
 2. Keys and values are restricted to property list objects, that is, objects that can be serialized with NSPropertyListSerialization. This includes NSData, NSString, NSArray, NSDictionary, NSDate, and NSNumber, but not (for example) NSSet.
 
-3. Mutable values may be stored in KCMutableDictionary, but they will be saved in the keychain as their immutable variants.
+3. Mutable values may be stored in KCMutableDictionary, but they will be effectively be copied to their immutable variants.
 
 4. Reads are fast, but writes are slow.
 
