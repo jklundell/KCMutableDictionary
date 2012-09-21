@@ -29,7 +29,7 @@
 {
     self = [super initWithNibName:(NSString *)nibBundleOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.kcDict = KCMutableDictionary.new;
+        self.kcDict = [KCMutableDictionary dictionary];
     }
     return self;
 }
