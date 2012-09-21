@@ -9,13 +9,17 @@
 #import "ViewController.h"
 #import "KCMutableDictionary.h"
 
-#define kMyKeyString    @"MyKeyString"
-#define kMyKeyArray     @"MyKeyArray"
-#define kMyKeyDict      @"MyKeyDict"
+#define kKeyString    @"MyKeyString"
+#define kKeyArray     @"MyKeyArray"
+#define kKeyDict      @"MyKeyDict"
+#define kKeyDate      @"MyKeyDict"
 
-#define kSaveAsString 0
-#define kSaveAsArray  1
-#define kSaveAsDict   2
+enum {
+    kSaveAsString = 0,
+    kSaveAsArray,
+    kSaveAsDict,
+    kSaveDate
+};
 
 @interface ViewController ()
 
@@ -45,10 +49,12 @@
     
     UIButton *b = (UIButton *)sender;
     NSString *value = self.inputTextField.text;
+    NSString *status = @"Saved";
     
     switch (b.tag) {
         case kSaveAsString:
-            [self.kcDict setObject:value forKey:kMyKeyString];
+            [self.kcDict setObject:value forKey:kKeyString];
+            status = @"String saved";
             break;
             
         case kSaveAsArray:
@@ -59,7 +65,8 @@
                 [value stringByAppendingString:@" 2"],
                 [value stringByAppendingString:@" 3"],
             ];
-            [self.kcDict setObject:array forKey:kMyKeyArray];
+            [self.kcDict setObject:array forKey:kKeyArray];
+            status = @"Array saved";
             break;
         }
             
@@ -71,12 +78,18 @@
                 @"2" : [value stringByAppendingString:@" 2"],
                 @"3" : [value stringByAppendingString:@" 3"],
             };
-            [self.kcDict setObject:dict forKey:kMyKeyDict];
+            [self.kcDict setObject:dict forKey:kKeyDict];
+            status = @"Dictionary saved";
             break;
         }
+            
+        case kSaveDate:
+            [self.kcDict setObject:[NSDate date] forKey:kKeyDate];
+            status = @"Date saved";
+            break;
     }
     
-    self.statusLabel.text = @"Saved";
+    self.statusLabel.text = status;
 }
 
 -(IBAction)fetchButtonPressed:(id)sender
@@ -87,20 +100,28 @@
     
     switch (b.tag) {
         case kSaveAsString:
-            value = [self.kcDict objectForKey:kMyKeyString];
+            value = [self.kcDict objectForKey:kKeyString];
             break;
             
         case kSaveAsArray:
         {
-            NSArray *array = [self.kcDict objectForKey:kMyKeyArray];
+            NSArray *array = [self.kcDict objectForKey:kKeyArray];
             value = [NSString stringWithFormat:@"array=%@", array];
             break;
         }
             
         case kSaveAsDict:
         {
-            NSDictionary *dict = [self.kcDict objectForKey:kMyKeyDict];
+            NSDictionary *dict = [self.kcDict objectForKey:kKeyDict];
             value = [NSString stringWithFormat:@"dict=%@", dict];
+            break;
+        }
+            
+        case kSaveDate:
+        {
+            NSDate *date = [self.kcDict objectForKey:kKeyDate];
+            value = date.description;
+            break;
         }
     }
     
