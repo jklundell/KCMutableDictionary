@@ -154,7 +154,8 @@ static KCMutableDictionary *_sharedDictionary = nil;
 - (void)setObject:(id)anObject forKey:(id < NSCopying >)aKey
 {
     [self.kcDict setObject:anObject forKey:aKey];
-    [self _saveDict];
+    if ([self _saveDict])
+        [self _fetchDict];  // re-fetch so we end up with immutable copies of values
 }
 
 - (void)removeObjectForKey:(id)aKey
