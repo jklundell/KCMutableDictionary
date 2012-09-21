@@ -18,6 +18,7 @@
 		1C190EE1160CA6ED007D9915 /* KCMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C190EE0160CA6ED007D9915 /* KCMutableDictionary.m */; };
 		1CC3BA36160CBF8E0045FA86 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CC3BA35160CBF8E0045FA86 /* Security.framework */; };
 		1CC3BA3D160CD8B40045FA86 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1CC3BA3C160CD8B40045FA86 /* README.md */; };
+		1CC3BA40160CDEEE0045FA86 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1CC3BA3F160CDEEE0045FA86 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		1C190EE0160CA6ED007D9915 /* KCMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCMutableDictionary.m; sourceTree = "<group>"; };
 		1CC3BA35160CBF8E0045FA86 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1CC3BA3C160CD8B40045FA86 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1CC3BA3F160CDEEE0045FA86 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				1C190ECE160CA6A7007D9915 /* main.m */,
 				1C190ED0160CA6A7007D9915 /* KCMutableDictionary-Prefix.pch */,
 				1CC3BA3C160CD8B40045FA86 /* README.md */,
+				1CC3BA3F160CDEEE0045FA86 /* LICENSE */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				1C190ECD160CA6A7007D9915 /* InfoPlist.strings in Resources */,
 				1C190ED9160CA6A7007D9915 /* ViewController.xib in Resources */,
 				1CC3BA3D160CD8B40045FA86 /* README.md in Resources */,
+				1CC3BA40160CDEEE0045FA86 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
