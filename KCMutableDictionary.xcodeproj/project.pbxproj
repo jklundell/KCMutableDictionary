@@ -10,15 +10,16 @@
 		1C190EC3160CA6A7007D9915 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C190EC2160CA6A7007D9915 /* UIKit.framework */; };
 		1C190EC5160CA6A7007D9915 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C190EC4160CA6A7007D9915 /* Foundation.framework */; };
 		1C190EC7160CA6A7007D9915 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C190EC6160CA6A7007D9915 /* CoreGraphics.framework */; };
-		1C190ECD160CA6A7007D9915 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C190ECB160CA6A7007D9915 /* InfoPlist.strings */; };
-		1C190ECF160CA6A7007D9915 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C190ECE160CA6A7007D9915 /* main.m */; };
-		1C190ED3160CA6A7007D9915 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C190ED2160CA6A7007D9915 /* AppDelegate.m */; };
-		1C190ED6160CA6A7007D9915 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C190ED5160CA6A7007D9915 /* ViewController.m */; };
-		1C190ED9160CA6A7007D9915 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C190ED7160CA6A7007D9915 /* ViewController.xib */; };
 		1C190EE1160CA6ED007D9915 /* KCMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C190EE0160CA6ED007D9915 /* KCMutableDictionary.m */; };
 		1CC3BA36160CBF8E0045FA86 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CC3BA35160CBF8E0045FA86 /* Security.framework */; };
 		1CC3BA3D160CD8B40045FA86 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1CC3BA3C160CD8B40045FA86 /* README.md */; };
-		1CC3BA40160CDEEE0045FA86 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1CC3BA3F160CDEEE0045FA86 /* LICENSE */; };
+		CEF39E8B160E3B6D00B12138 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF39E80160E3B6D00B12138 /* AppDelegate.m */; };
+		CEF39E8C160E3B6D00B12138 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEF39E81160E3B6D00B12138 /* InfoPlist.strings */; };
+		CEF39E8D160E3B6D00B12138 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF39E83160E3B6D00B12138 /* ViewController.xib */; };
+		CEF39E8E160E3B6D00B12138 /* KCMutableDictionary-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEF39E85160E3B6D00B12138 /* KCMutableDictionary-Info.plist */; };
+		CEF39E8F160E3B6D00B12138 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CEF39E87160E3B6D00B12138 /* LICENSE */; };
+		CEF39E90160E3B6D00B12138 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF39E88160E3B6D00B12138 /* main.m */; };
+		CEF39E91160E3B6D00B12138 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF39E8A160E3B6D00B12138 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,20 +27,20 @@
 		1C190EC2160CA6A7007D9915 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1C190EC4160CA6A7007D9915 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1C190EC6160CA6A7007D9915 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1C190ECA160CA6A7007D9915 /* KCMutableDictionary-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KCMutableDictionary-Info.plist"; sourceTree = "<group>"; };
-		1C190ECC160CA6A7007D9915 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1C190ECE160CA6A7007D9915 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1C190ED0160CA6A7007D9915 /* KCMutableDictionary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KCMutableDictionary-Prefix.pch"; sourceTree = "<group>"; };
-		1C190ED1160CA6A7007D9915 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		1C190ED2160CA6A7007D9915 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1C190ED4160CA6A7007D9915 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1C190ED5160CA6A7007D9915 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1C190ED8160CA6A7007D9915 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		1C190EDF160CA6ED007D9915 /* KCMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCMutableDictionary.h; sourceTree = "<group>"; };
 		1C190EE0160CA6ED007D9915 /* KCMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCMutableDictionary.m; sourceTree = "<group>"; };
 		1CC3BA35160CBF8E0045FA86 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1CC3BA3C160CD8B40045FA86 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		1CC3BA3F160CDEEE0045FA86 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		CEF39E7F160E3B6D00B12138 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CEF39E80160E3B6D00B12138 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CEF39E82160E3B6D00B12138 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CEF39E84160E3B6D00B12138 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		CEF39E85160E3B6D00B12138 /* KCMutableDictionary-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "KCMutableDictionary-Info.plist"; path = "../Example/KCMutableDictionary-Info.plist"; sourceTree = "<group>"; };
+		CEF39E86160E3B6D00B12138 /* KCMutableDictionary-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KCMutableDictionary-Prefix.pch"; path = "../Example/KCMutableDictionary-Prefix.pch"; sourceTree = "<group>"; };
+		CEF39E87160E3B6D00B12138 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../Example/LICENSE; sourceTree = "<group>"; };
+		CEF39E88160E3B6D00B12138 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../Example/main.m; sourceTree = "<group>"; };
+		CEF39E89160E3B6D00B12138 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CEF39E8A160E3B6D00B12138 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				1C190EC8160CA6A7007D9915 /* KCMutableDictionary */,
+				CEF39E7E160E3B6D00B12138 /* Example */,
 				1C190EC1160CA6A7007D9915 /* Frameworks */,
 				1C190EBF160CA6A7007D9915 /* Products */,
 			);
@@ -90,12 +92,6 @@
 			children = (
 				1C190EDF160CA6ED007D9915 /* KCMutableDictionary.h */,
 				1C190EE0160CA6ED007D9915 /* KCMutableDictionary.m */,
-				1C190ED1160CA6A7007D9915 /* AppDelegate.h */,
-				1C190ED2160CA6A7007D9915 /* AppDelegate.m */,
-				1C190ED4160CA6A7007D9915 /* ViewController.h */,
-				1C190ED5160CA6A7007D9915 /* ViewController.m */,
-				1C190ED7160CA6A7007D9915 /* ViewController.xib */,
-				1C190EC9160CA6A7007D9915 /* Supporting Files */,
 			);
 			path = KCMutableDictionary;
 			sourceTree = "<group>";
@@ -103,14 +99,28 @@
 		1C190EC9160CA6A7007D9915 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1C190ECA160CA6A7007D9915 /* KCMutableDictionary-Info.plist */,
-				1C190ECB160CA6A7007D9915 /* InfoPlist.strings */,
-				1C190ECE160CA6A7007D9915 /* main.m */,
-				1C190ED0160CA6A7007D9915 /* KCMutableDictionary-Prefix.pch */,
+				CEF39E81160E3B6D00B12138 /* InfoPlist.strings */,
+				CEF39E85160E3B6D00B12138 /* KCMutableDictionary-Info.plist */,
+				CEF39E86160E3B6D00B12138 /* KCMutableDictionary-Prefix.pch */,
+				CEF39E87160E3B6D00B12138 /* LICENSE */,
+				CEF39E88160E3B6D00B12138 /* main.m */,
 				1CC3BA3C160CD8B40045FA86 /* README.md */,
-				1CC3BA3F160CDEEE0045FA86 /* LICENSE */,
 			);
 			name = "Supporting Files";
+			path = ../KCMutableDictionary;
+			sourceTree = "<group>";
+		};
+		CEF39E7E160E3B6D00B12138 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				1C190EC9160CA6A7007D9915 /* Supporting Files */,
+				CEF39E7F160E3B6D00B12138 /* AppDelegate.h */,
+				CEF39E80160E3B6D00B12138 /* AppDelegate.m */,
+				CEF39E83160E3B6D00B12138 /* ViewController.xib */,
+				CEF39E89160E3B6D00B12138 /* ViewController.h */,
+				CEF39E8A160E3B6D00B12138 /* ViewController.m */,
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,10 +174,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C190ECD160CA6A7007D9915 /* InfoPlist.strings in Resources */,
-				1C190ED9160CA6A7007D9915 /* ViewController.xib in Resources */,
 				1CC3BA3D160CD8B40045FA86 /* README.md in Resources */,
-				1CC3BA40160CDEEE0045FA86 /* LICENSE in Resources */,
+				CEF39E8C160E3B6D00B12138 /* InfoPlist.strings in Resources */,
+				CEF39E8D160E3B6D00B12138 /* ViewController.xib in Resources */,
+				CEF39E8E160E3B6D00B12138 /* KCMutableDictionary-Info.plist in Resources */,
+				CEF39E8F160E3B6D00B12138 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,28 +189,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C190ECF160CA6A7007D9915 /* main.m in Sources */,
-				1C190ED3160CA6A7007D9915 /* AppDelegate.m in Sources */,
-				1C190ED6160CA6A7007D9915 /* ViewController.m in Sources */,
 				1C190EE1160CA6ED007D9915 /* KCMutableDictionary.m in Sources */,
+				CEF39E8B160E3B6D00B12138 /* AppDelegate.m in Sources */,
+				CEF39E90160E3B6D00B12138 /* main.m in Sources */,
+				CEF39E91160E3B6D00B12138 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1C190ECB160CA6A7007D9915 /* InfoPlist.strings */ = {
+		CEF39E81160E3B6D00B12138 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1C190ECC160CA6A7007D9915 /* en */,
+				CEF39E82160E3B6D00B12138 /* en */,
 			);
 			name = InfoPlist.strings;
+			path = ../Example;
 			sourceTree = "<group>";
 		};
-		1C190ED7160CA6A7007D9915 /* ViewController.xib */ = {
+		CEF39E83160E3B6D00B12138 /* ViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1C190ED8160CA6A7007D9915 /* en */,
+				CEF39E84160E3B6D00B12138 /* en */,
 			);
 			name = ViewController.xib;
 			sourceTree = "<group>";
@@ -260,8 +272,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KCMutableDictionary/KCMutableDictionary-Prefix.pch";
-				INFOPLIST_FILE = "KCMutableDictionary/KCMutableDictionary-Info.plist";
+				GCC_PREFIX_HEADER = "Example/KCMutableDictionary-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Example/KCMutableDictionary-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -271,8 +283,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KCMutableDictionary/KCMutableDictionary-Prefix.pch";
-				INFOPLIST_FILE = "KCMutableDictionary/KCMutableDictionary-Info.plist";
+				GCC_PREFIX_HEADER = "Example/KCMutableDictionary-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Example/KCMutableDictionary-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
