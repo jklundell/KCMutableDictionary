@@ -106,12 +106,8 @@ static NSString *_kcKey = nil;
 
 static KCMutableDictionary *_sharedDictionary = nil;
 
-- (id)initWithObjects:(NSArray *)objects forKeys:(NSArray *)keys
+- (id)_init_common
 {
-    if (objects.count || keys.count) {
-        [NSException raise:@"bad_init" format:@"KCMutableDictionarry cannot be initialized with data"];
-        return nil;
-    }
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (self) {
@@ -121,17 +117,26 @@ static KCMutableDictionary *_sharedDictionary = nil;
             [self _fetchDict];
         }
     });
-    return _sharedDictionary;
-}
-
-- (id)initWithCapacity:(NSUInteger)numItems
-{
-    return [self initWithObjects:@[] forKeys:@[]];
+    return _sharedDictionary; 
 }
 
 - (id)init
 {
-    return [self initWithObjects:@[] forKeys:@[]];
+    return self._init_common;
+}
+
+- (id)initWithObjects:(NSArray *)objects forKeys:(NSArray *)keys
+{
+    if (objects.count || keys.count) {
+        [NSException raise:@"bad_init" format:@"KCMutableDictionarry cannot be initialized with data"];
+        return nil;
+    }
+    return self._init_common;
+}
+
+- (id)initWithCapacity:(NSUInteger)numItems
+{
+    return self._init_common;
 }
 
 - (NSUInteger)count
