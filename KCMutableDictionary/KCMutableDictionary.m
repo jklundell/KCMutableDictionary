@@ -105,12 +105,25 @@
 
 #pragma mark - NSDictionary methods
 
-- (id)_init_common
+static NSDate *syncObject;
+
++ (void)initialize
+{
+    syncObject = [NSDate date]; // effectively a class-specific singleton
+}
+
+//  Allow named dictionaries, but supply a name by default.
+//
+- (id)initWithName:(NSString *)name
 {
     if (self) {
-        @synchronized([UIApplication sharedApplication]) {
+        @synchronized(syncObject) {
             NSString *bundleID = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey];
-            self.kcKey = [bundleID stringByAppendingString:@".__KCMutableDictionary__"];
+            if (name) {
+                self.kcKey = [bundleID stringByAppendingFormat:@".__KCMutableDictionary__.%@", name];
+            } else {
+                self.kcKey = [bundleID stringByAppendingString:@".__KCMutableDictionary__"];
+            }
             [self _fetchDict];
         }
     }
@@ -119,21 +132,21 @@
 
 - (id)init
 {
-    return self._init_common;
+    return [self initWithName:nil];
 }
 
 - (id)initWithObjects:(NSArray *)objects forKeys:(NSArray *)keys
 {
     if (objects.count || keys.count) {
-        [NSException raise:@"bad_init" format:@"KCMutableDictionarry cannot be initialized with data"];
+        [NSException raise:@"bad_init" format:@"KCMutableDictionary cannot be initialized with data"];
         return nil;
     }
-    return self._init_common;
+    return [self initWithName:nil];
 }
 
 - (id)initWithCapacity:(NSUInteger)numItems
 {
-    return self._init_common;
+    return [self initWithName:nil];
 }
 
 - (NSUInteger)count
@@ -155,7 +168,7 @@
 
 - (void)setObject:(id)anObject forKey:(id < NSCopying >)aKey
 {
-    @synchronized([UIApplication sharedApplication]) {
+    @synchronized(syncObject) {
         [self.kcDict setObject:anObject forKey:aKey];
         if ([self _saveDict])
             [self _fetchDict];  // re-fetch so we end up with immutable copies of values
@@ -164,7 +177,7 @@
 
 - (void)removeObjectForKey:(id)aKey
 {
-    @synchronized([UIApplication sharedApplication]) {
+    @synchronized(syncObject) {
         [self.kcDict removeObjectForKey:aKey];
         [self _saveDict];
     }

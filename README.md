@@ -20,9 +20,9 @@ Copy `KCMutableDictionary.h` and `KCMutableDictionary.m` to your project and `#i
 
 For security reasons, you may not want the dictionary to remain resident in memory once you're done with it. Do not remove items from the dictionary, since this will also remove them from the backing store in the keychain. Instead, release the dictionary by assigning `nil` to its reference.
 
-The serialized dictionary is stored in the keychain with the key `<bundleID>.__KCMutableDictionary__`.
+The serialized dictionary is stored by default in the keychain with the key `<bundleID>.__KCMutableDictionary__`. Named dictionaries can be stored in the keychain as well; used the initializer `initWithName:` to use a dictionary named `<bundleID>.__KCMutableDictionary__.<name>`.
 
 Acknowledgements
 ----------------
 
-`KCMutableDictionary` was inspired by Mark Granoff's [granoff/Lockbox](https://github.com/granoff/Lockbox) and a suggestion by [Ernesto Rivera](https://github.com/rivera-ernesto). Matt Gallagher has a useful [post](http://cocoawithlove.com/2008/12/ordereddictionary-subclassing-cocoa.html) on the subject of subclassing `NSMutableDictionary` at [Cocoa with Love](http://cocoawithlove.com) that I didn't stumble on until too late to save me some time.
+`KCMutableDictionary` was inspired by Mark Granoff's [granoff/Lockbox](https://github.com/granoff/Lockbox) and a suggestion by [Ernesto Rivera](https://github.com/rivera-ernesto). Matt Gallagher has a useful [post](http://cocoawithlove.com/2008/12/ordereddictionary-subclassing-cocoa.html) on the subject of subclassing `NSMutableDictionary` at [Cocoa with Love](http://cocoawithlove.com) that I didn't stumble on until too late to save me some time. Thanks also to my many smart friends.
