@@ -25,4 +25,4 @@ The serialized dictionary is stored in the keychain with the key `<bundleID>.__K
 Acknowledgements
 ----------------
 
-`KCMutableDictionary` was inspired by Mark Granoff's [granoff/Lockbox](https://github.com/granoff/Lockbox) and a suggestion by [Ernesto Rivera](https://github.com/rivera-ernesto). Matt Gallagher has a useful [post](http://cocoawithlove.com/2008/12/ordereddictionary-subclassing-cocoa.html) at [Cocoa with Love(http://cocoawithlove.com) that I didn't stumble on until too late to save me some time.
+`KCMutableDictionary` was inspired by Mark Granoff's [granoff/Lockbox](https://github.com/granoff/Lockbox) and a suggestion by [Ernesto Rivera](https://github.com/rivera-ernesto). Matt Gallagher has a useful [post](http://cocoawithlove.com/2008/12/ordereddictionary-subclassing-cocoa.html) on the subject of subclassing `NSMutableDictionary` at [Cocoa with Love](http://cocoawithlove.com) that I didn't stumble on until too late to save me some time.
