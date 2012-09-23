@@ -16,6 +16,7 @@
 		1C190ED6160CA6A7007D9915 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C190ED5160CA6A7007D9915 /* ViewController.m */; };
 		1C190ED9160CA6A7007D9915 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C190ED7160CA6A7007D9915 /* ViewController.xib */; };
 		1C190EE1160CA6ED007D9915 /* KCMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C190EE0160CA6ED007D9915 /* KCMutableDictionary.m */; };
+		1C332E7A160E9DE200CA3526 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C332E79160E9DE200CA3526 /* Default-568h@2x.png */; };
 		1CC3BA36160CBF8E0045FA86 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CC3BA35160CBF8E0045FA86 /* Security.framework */; };
 		1CC3BA3D160CD8B40045FA86 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1CC3BA3C160CD8B40045FA86 /* README.md */; };
 		1CC3BA40160CDEEE0045FA86 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1CC3BA3F160CDEEE0045FA86 /* LICENSE */; };
@@ -37,6 +38,7 @@
 		1C190ED8160CA6A7007D9915 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		1C190EDF160CA6ED007D9915 /* KCMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCMutableDictionary.h; sourceTree = "<group>"; };
 		1C190EE0160CA6ED007D9915 /* KCMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCMutableDictionary.m; sourceTree = "<group>"; };
+		1C332E79160E9DE200CA3526 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		1CC3BA35160CBF8E0045FA86 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1CC3BA3C160CD8B40045FA86 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1CC3BA3F160CDEEE0045FA86 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		1C190EC9160CA6A7007D9915 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1C332E79160E9DE200CA3526 /* Default-568h@2x.png */,
 				1C190ECA160CA6A7007D9915 /* KCMutableDictionary-Info.plist */,
 				1C190ECB160CA6A7007D9915 /* InfoPlist.strings */,
 				1C190ECE160CA6A7007D9915 /* main.m */,
@@ -168,6 +171,7 @@
 				1C190ED9160CA6A7007D9915 /* ViewController.xib in Resources */,
 				1CC3BA3D160CD8B40045FA86 /* README.md in Resources */,
 				1CC3BA40160CDEEE0045FA86 /* LICENSE in Resources */,
+				1C332E7A160E9DE200CA3526 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
