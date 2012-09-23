@@ -20,7 +20,7 @@ Copy `KCMutableDictionary.h` and `KCMutableDictionary.m` to your project and `#i
 
 For security reasons, you may not want the dictionary to remain resident in memory once you're done with it. Do not remove items from the dictionary, since this will also remove them from the backing store in the keychain. Instead, release the dictionary by assigning `nil` to its reference.
 
-The serialized dictionary is stored in the keychain with the key `&lt;bundleID&gt;.\_\_KCMutableDictionary\_\_`.
+The serialized dictionary is stored in the keychain with the key `<bundleID>.__KCMutableDictionary__`.
 
 `KCMutableDictionary` is not in itself thread-safe. Either restrict its use to the main queue, or use `@synchronized()` to synchronize access at the appropriate level (typically a collection of individual read/write transactions).
 
