@@ -22,9 +22,7 @@ For security reasons, you may not want the dictionary to remain resident in memo
 
 The serialized dictionary is stored in the keychain with the key `<bundleID>.__KCMutableDictionary__`.
 
-`KCMutableDictionary` is not in itself thread-safe. Either restrict its use to the main queue, or use `@synchronized()` to synchronize access at the appropriate level (typically a collection of individual read/write transactions).
-
 Acknowledgements
 ----------------
 
-`KCMutableDictionary` was inspired by Mark Granoff's [granoff/Lockbox](https://github.com/granoff/Lockbox) and a suggestion by [Ernesto Rivera](https://github.com/rivera-ernesto).
+`KCMutableDictionary` was inspired by Mark Granoff's [granoff/Lockbox](https://github.com/granoff/Lockbox) and a suggestion by [Ernesto Rivera](https://github.com/rivera-ernesto). Matt Gallagher has a useful [post](http://cocoawithlove.com/2008/12/ordereddictionary-subclassing-cocoa.html) at [Cocoa with Love(http://cocoawithlove.com) that I didn't stumble on until too late to save me some time.

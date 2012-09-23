@@ -105,20 +105,16 @@
 
 #pragma mark - NSDictionary methods
 
-static KCMutableDictionary *_sharedDictionary = nil;
-
 - (id)_init_common
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        if (self) {
-            _sharedDictionary = self;
+    if (self) {
+        @synchronized([UIApplication sharedApplication]) {
             NSString *bundleID = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey];
             self.kcKey = [bundleID stringByAppendingString:@".__KCMutableDictionary__"];
             [self _fetchDict];
         }
-    });
-    return _sharedDictionary; 
+    }
+    return self;
 }
 
 - (id)init
@@ -159,15 +155,19 @@ static KCMutableDictionary *_sharedDictionary = nil;
 
 - (void)setObject:(id)anObject forKey:(id < NSCopying >)aKey
 {
-    [self.kcDict setObject:anObject forKey:aKey];
-    if ([self _saveDict])
-        [self _fetchDict];  // re-fetch so we end up with immutable copies of values
+    @synchronized([UIApplication sharedApplication]) {
+        [self.kcDict setObject:anObject forKey:aKey];
+        if ([self _saveDict])
+            [self _fetchDict];  // re-fetch so we end up with immutable copies of values
+    }
 }
 
 - (void)removeObjectForKey:(id)aKey
 {
-    [self.kcDict removeObjectForKey:aKey];
-    [self _saveDict];
+    @synchronized([UIApplication sharedApplication]) {
+        [self.kcDict removeObjectForKey:aKey];
+        [self _saveDict];
+    }
 }
 
 @end
