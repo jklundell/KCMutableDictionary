@@ -12,7 +12,7 @@
 #define kKeyString    @"MyKeyString"
 #define kKeyArray     @"MyKeyArray"
 #define kKeyDict      @"MyKeyDict"
-#define kKeyDate      @"MyKeyDict"
+#define kKeyDate      @"MyKeyDate"
 
 enum {
     kSaveAsString = 0,
@@ -49,7 +49,7 @@ enum {
     
     UIButton *b = (UIButton *)sender;
     NSString *value = self.inputTextField.text;
-    NSString *status = @"Saved";
+    NSString *status = @"Error saving";
     
     switch (b.tag) {
         case kSaveAsString:
@@ -97,16 +97,19 @@ enum {
     [self.inputTextField resignFirstResponder];
     UIButton *b = (UIButton *)sender;
     NSString *value = @"";
+    NSString *status = @"Error fetching";
     
     switch (b.tag) {
         case kSaveAsString:
-            value = [self.kcDict objectForKey:kKeyString];
+            value = [NSString stringWithFormat:@"string=\"%@\"", [self.kcDict objectForKey:kKeyString]];
+            status = @"String fetched";
             break;
             
         case kSaveAsArray:
         {
             NSArray *array = [self.kcDict objectForKey:kKeyArray];
             value = [NSString stringWithFormat:@"array=%@", array];
+            status = @"Array fetched";
             break;
         }
             
@@ -114,17 +117,20 @@ enum {
         {
             NSDictionary *dict = [self.kcDict objectForKey:kKeyDict];
             value = [NSString stringWithFormat:@"dict=%@", dict];
+            status = @"Dictionary fetched";
             break;
         }
             
         case kSaveDate:
         {
             NSDate *date = [self.kcDict objectForKey:kKeyDate];
-            value = date.description;
+            value = [NSString stringWithFormat:@"date=%@", date.description];
+            status = @"Date fetched";
             break;
         }
     }
     
+    self.statusLabel.text = status;
     self.fetchedValueLabel.text = value;
 }
 

@@ -6,13 +6,12 @@
 //  Copyright (c) 2012 Jonathan Lundell. All rights reserved.
 //
 
-static NSString *_kcKey = nil;
-
 #import "KCMutableDictionary.h"
 
 @interface KCMutableDictionary ()
 
 @property (strong, nonatomic) NSMutableDictionary *kcDict;
+@property (strong, nonatomic) NSString *kcKey;
 
 @end
 
@@ -38,7 +37,7 @@ static NSString *_kcKey = nil;
     NSDictionary *query = @{
         (__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword,
         (__bridge id)kSecReturnData : (id)kCFBooleanTrue,
-        (__bridge id)kSecAttrService : _kcKey
+        (__bridge id)kSecAttrService : self.kcKey
     };
     status = SecItemDelete((__bridge CFDictionaryRef)query);
     if (status != errSecSuccess && status != errSecItemNotFound) {
@@ -49,7 +48,7 @@ static NSString *_kcKey = nil;
     //  Add serialized dictionary to the keychain
     NSDictionary *dict = @{
         (__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword,
-        (__bridge id)kSecAttrService : _kcKey,
+        (__bridge id)kSecAttrService : self.kcKey,
         (__bridge id)kSecValueData : data
     };
     status = SecItemAdd ((__bridge CFDictionaryRef)dict, NULL);
@@ -62,28 +61,30 @@ static NSString *_kcKey = nil;
 
 //  Fetch our data dictionary from the keychain
 //
-- (BOOL)_fetchDict
+- (void)_fetchDict
 {
     //  Fetch the serialized dictionary from the keychain
     NSDictionary *query = @{
         (__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword,
         (__bridge id)kSecReturnData : (id)kCFBooleanTrue,
-        (__bridge id)kSecAttrService : _kcKey
+        (__bridge id)kSecAttrService : self.kcKey
     };
     
     CFDataRef data = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&data);
     
-    //  If not found, initialize with our data dictionary
+    //  If not found, initialize with our current data dictionary
     if (status == errSecItemNotFound) {
-        if (!self.kcDict)
+        if (!self.kcDict) {
             self.kcDict = NSMutableDictionary.new;
-        return [self _saveDict];
+        }
+        [self _saveDict];
+        return;
     }
     
     if (status != errSecSuccess) {
         NSLog(@"SecItemCopyMatching failed: %ld", status);
-        return NO;
+        return;
     }
     
     //  Deserialize the data into our local copy
@@ -95,11 +96,11 @@ static NSString *_kcKey = nil;
                                                                   error:&error];
         if (error) {
             NSLog(@"NSPropertyListSerialization error: %@", error);
-            return NO;
+            return;
         }
         self.kcDict = kcDict;
     }
-    return YES;
+    return;
 }
 
 #pragma mark - NSDictionary methods
@@ -113,7 +114,7 @@ static KCMutableDictionary *_sharedDictionary = nil;
         if (self) {
             _sharedDictionary = self;
             NSString *bundleID = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey];
-            _kcKey = [bundleID stringByAppendingString:@".__KCMutableDictionary__"];
+            self.kcKey = [bundleID stringByAppendingString:@".__KCMutableDictionary__"];
             [self _fetchDict];
         }
     });
