@@ -90,15 +90,17 @@
     //  Deserialize the data into our local copy
     if (data) {
         NSError *error = nil;
-        NSMutableDictionary *kcDict = [NSPropertyListSerialization propertyListWithData:(__bridge NSData *)(data)
-                                                                options:NSPropertyListMutableContainers
-                                                                 format:NULL
-                                                                  error:&error];
+        NSMutableDictionary *kcDict = [NSPropertyListSerialization
+                                       propertyListWithData:(__bridge NSData *)(data)
+                                       options:NSPropertyListMutableContainers
+                                       format:NULL
+                                       error:&error];
         if (error) {
             NSLog(@"NSPropertyListSerialization error: %@", error);
             return;
         }
         self.kcDict = kcDict;
+        CFRelease(data);
     }
     return;
 }
