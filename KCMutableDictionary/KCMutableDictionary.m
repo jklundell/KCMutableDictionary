@@ -91,7 +91,7 @@
     if (data) {
         NSError *error = nil;
         NSMutableDictionary *kcDict = [NSPropertyListSerialization
-                                       propertyListWithData:(__bridge NSData *)(data)
+                                       propertyListWithData:(__bridge_transfer NSData *)(data)
                                        options:NSPropertyListMutableContainers
                                        format:NULL
                                        error:&error];
@@ -100,7 +100,6 @@
             return;
         }
         self.kcDict = kcDict;
-        CFRelease(data);
     }
     return;
 }
