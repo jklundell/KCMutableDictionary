@@ -155,7 +155,7 @@ static KCMutableDictionary *_sharedDictionary = nil;    // The default (unnamed)
     return [self initWithName:nil];
 }
 
-- (void)forget
++ (void)forget
 {
     _sharedDictionary = nil;    // release singleton unnamed dictionary
 }
