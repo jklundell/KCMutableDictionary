@@ -117,13 +117,18 @@ static NSDate *syncObject;
 //
 - (id)initWithName:(NSString *)name
 {
-    if (self) {
-        @synchronized(syncObject) {
-            NSString *bundleID = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey];
+    static KCMutableDictionary *_sharedDictionary = nil;    // The default (unnamed) dictionary is a singleton
+    @synchronized(syncObject) {
+        NSString *bundleID = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey];
+        NSString *sharedKey = [bundleID stringByAppendingString:@".__KCMutableDictionary__"];
+        if ((!name || [name isEqualToString:sharedKey]) && _sharedDictionary)
+            return _sharedDictionary;
+        if (self) {
             if (name) {
                 self.kcKey = [bundleID stringByAppendingFormat:@".__KCMutableDictionary__.%@", name];
             } else {
-                self.kcKey = [bundleID stringByAppendingString:@".__KCMutableDictionary__"];
+                self.kcKey = sharedKey;
+                _sharedDictionary = self;
             }
             [self _fetchDict];
         }
