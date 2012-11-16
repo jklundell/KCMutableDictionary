@@ -170,6 +170,7 @@ static NSDate *syncObject;
 - (void)setObject:(id)anObject forKey:(id < NSCopying >)aKey
 {
     @synchronized(syncObject) {
+        [self _fetchDict];  // re-fetch to make sure the copy is up-to-date
         [self.kcDict setObject:anObject forKey:aKey];
         if ([self _saveDict])
             [self _fetchDict];  // re-fetch so we end up with immutable copies of values
