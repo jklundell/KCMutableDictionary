@@ -11,5 +11,6 @@
 @interface KCMutableDictionary : NSMutableDictionary
 
 - (id)initWithName:(NSString *)name;    // optional initializer for named dictionaries
+- (void)forget;                         // release singleton unnamed dictionary
 
 @end

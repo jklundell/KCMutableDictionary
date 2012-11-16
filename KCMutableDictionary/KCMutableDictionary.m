@@ -107,6 +107,7 @@
 #pragma mark - NSDictionary methods
 
 static NSDate *syncObject;
+static KCMutableDictionary *_sharedDictionary = nil;    // The default (unnamed) dictionary is a singleton
 
 + (void)initialize
 {
@@ -117,7 +118,6 @@ static NSDate *syncObject;
 //
 - (id)initWithName:(NSString *)name
 {
-    static KCMutableDictionary *_sharedDictionary = nil;    // The default (unnamed) dictionary is a singleton
     @synchronized(syncObject) {
         NSString *bundleID = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey];
         NSString *sharedKey = [bundleID stringByAppendingString:@".__KCMutableDictionary__"];
@@ -153,6 +153,11 @@ static NSDate *syncObject;
 - (id)initWithCapacity:(NSUInteger)numItems
 {
     return [self initWithName:nil];
+}
+
+- (void)forget
+{
+    _sharedDictionary = nil;    // release singleton unnamed dictionary
 }
 
 - (NSUInteger)count
