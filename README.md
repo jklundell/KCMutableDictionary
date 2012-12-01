@@ -5,7 +5,7 @@ KCMutableDictionary
 
 Four restrictions are imposed:
 
-1. `KCMutableDictionary` may not be initialized with data. Use, for example, `[KCMutableDictionary dictionary]` or `KCMutableDictionary.new`.
+1. `KCMutableDictionary` may not be initialized with data. Use, for example, `+dictionary` or `+dictionaryWithName:`.
 
 2. Keys and values are restricted to property list objects, that is, objects that can be serialized with `NSPropertyListSerialization`. This includes `NSData`, `NSString`, `NSArray`, `NSDictionary`, `NSDate`, and `NSNumber`, but not (for example) `NSSet`.
 
@@ -18,9 +18,16 @@ Using KCMutableDictionary
 
 Copy `KCMutableDictionary.h` and `KCMutableDictionary.m` to your project and `#import "KCMutableDictionary.h"` as required. When the dictionary is instantiated (`[KCMutableDictionary dictionary]` is as good a method as any), it automatically populates itself from the keychain. Stores are synchronous: the dictionary is immediately written to the keychain and then read back (so that the dictionary items are now immutable copies of the originals).
 
-For security reasons, you may not want the dictionary to remain resident in memory once you're done with it. Do not remove items from the dictionary, since this will also remove them from the backing store in the keychain. Instead, release the dictionary by assigning `nil` to any local reference and calling `+forget` to release the singleton reference.
+For security reasons, you may not want the dictionary to remain resident in memory once you're done with it. Do not remove items from the dictionary, since this will also remove them from the backing store in the keychain. Instead, release the dictionary by assigning `nil` to any local reference and calling `-forget` to release the singleton reference.
 
-The serialized dictionary is stored by default in the keychain with the key `<bundleID>.__KCMutableDictionary__`. Named dictionaries can be stored in the keychain as well; used the initializer `initWithName:` to use a dictionary named `<bundleID>.__KCMutableDictionary__.<name>`. The default dictionary is a singleton as of v1.1, and multiple instantiations refer to the same object. Named dictionaries are not singletons, and it's the responsibilty of the client to manage sharing.
+The serialized dictionary is stored by default in the keychain with the key `<bundleID>.__KCMutableDictionary__`. Named dictionaries can be stored in the keychain as well; use the convenience method `+dictionaryWithName:` to use a dictionary named `<bundleID>.__KCMutableDictionary__.<name>`. All dictionaries are singletons as of v1.2; multiple instantiations with the same name refer to the same object.
+
+Changes
+-------
+
+1.2: All dictionaries are singletons. The method `-initWithName:` no longer exists; use `+dictionaryWithName:` instead.
+
+1.1: The default dictionary is a singleton.
 
 Acknowledgements
 ----------------

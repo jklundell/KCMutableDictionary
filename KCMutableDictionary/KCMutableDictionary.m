@@ -107,29 +107,49 @@
 #pragma mark - NSDictionary methods
 
 static NSDate *syncObject;
-static KCMutableDictionary *_sharedDictionary = nil;    // The default (unnamed) dictionary is a singleton
+static NSMutableDictionary *_sharedDictionaries = nil;  // Dictionary of singleton KCMutableDictionary keyed by name
 
 + (void)initialize
 {
-    syncObject = [NSDate date]; // effectively a class-specific singleton
+    _sharedDictionaries = NSMutableDictionary.new;
+}
+
++ (NSString *)keyFromName:(NSString *)name
+{
+    NSString *bundleID = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey];
+    NSString *key = [bundleID stringByAppendingString:@".__KCMutableDictionary__"];
+    if (name)
+        key = [key stringByAppendingFormat:@".%@", name];
+    return key;
 }
 
 //  Allow named dictionaries, but supply a name by default.
 //
-- (id)initWithName:(NSString *)name
++ (KCMutableDictionary *)dictionaryWithName:(NSString *)name
 {
-    @synchronized(syncObject) {
-        NSString *bundleID = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey];
-        NSString *sharedKey = [bundleID stringByAppendingString:@".__KCMutableDictionary__"];
-        if ((!name || [name isEqualToString:sharedKey]) && _sharedDictionary)
-            return _sharedDictionary;
-        if (self) {
-            if (name) {
-                self.kcKey = [bundleID stringByAppendingFormat:@".__KCMutableDictionary__.%@", name];
-            } else {
-                self.kcKey = sharedKey;
-                _sharedDictionary = self;
-            }
+    NSString *key = [KCMutableDictionary keyFromName:name];
+    @synchronized(_sharedDictionaries) {
+        KCMutableDictionary *sharedDictionary = _sharedDictionaries[key];
+        if (sharedDictionary)
+            return sharedDictionary;
+        return [[KCMutableDictionary alloc] initWithKey:key];
+    }
+}
+
++ (KCMutableDictionary *)dictionary
+{
+    return [KCMutableDictionary dictionaryWithName:nil];
+}
+
+- (id)initWithKey:(NSString *)key
+{
+    @synchronized(_sharedDictionaries) {
+        KCMutableDictionary *sharedDictionary = _sharedDictionaries[key];
+        if (sharedDictionary)
+            self = sharedDictionary;
+        else if (self) {
+            self.kcKey = key;
+            _sharedDictionaries[key] = self;
             [self _fetchDict];
         }
     }
@@ -138,7 +158,7 @@ static KCMutableDictionary *_sharedDictionary = nil;    // The default (unnamed)
 
 - (id)init
 {
-    return [self initWithName:nil];
+    return [self initWithKey:[KCMutableDictionary keyFromName:nil]];
 }
 
 - (id)initWithObjects:(NSArray *)objects forKeys:(NSArray *)keys
@@ -147,17 +167,21 @@ static KCMutableDictionary *_sharedDictionary = nil;    // The default (unnamed)
         [NSException raise:@"bad_init" format:@"KCMutableDictionary cannot be initialized with data"];
         return nil;
     }
-    return [self initWithName:nil];
+    return [self init];
 }
 
 - (id)initWithCapacity:(NSUInteger)numItems
 {
-    return [self initWithName:nil];
+    return [self init];
 }
 
-+ (void)forget
+- (void)forget
 {
-    _sharedDictionary = nil;    // release singleton unnamed dictionary
+    if (self.kcKey) {
+        [_sharedDictionaries removeObjectForKey:self.kcKey];
+        self.kcKey = nil;
+        self.kcDict = nil;
+    }
 }
 
 - (NSUInteger)count
